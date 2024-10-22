@@ -7,7 +7,7 @@ import {
 } from "react-native";
 import { Button } from "react-native-paper";
 import { PaperProvider, useTheme, configureFonts } from "react-native-paper";
-import { privaseeThemeDark } from "./themes";
+import { privaseeThemeDark } from "../../constants/themes";
 import React from "react";
 
 export default function BeginningScreen() {
@@ -41,7 +41,7 @@ export default function BeginningScreen() {
                 justifyContent: "center",
               }}
             >
-              <Link href="/(tabs)/explore">
+              <Link href="/(tabs)/explore" asChild>
                 <Button
                   mode="contained"
                   style={{ backgroundColor: theme.colors.primary }}

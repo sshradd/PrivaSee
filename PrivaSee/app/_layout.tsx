@@ -1,5 +1,5 @@
 import React from "react";
-import { privaseeThemeDark } from "./themes";
+import { privaseeThemeDark } from "../constants/themes";
 import { Stack } from "expo-router";
 import { PaperProvider } from "react-native-paper";
 
