@@ -5,8 +5,13 @@ import {
   View,
   /* @tutinfo Import <CODE>StyleSheet</CODE> to define styles. */ StyleSheet,
 } from "react-native";
-import { Button } from "react-native-paper";
-import { PaperProvider, useTheme, configureFonts } from "react-native-paper";
+import { Button, Text as PaperText } from "react-native-paper";
+import {
+  PaperProvider,
+  useTheme,
+  configureFonts,
+  Card,
+} from "react-native-paper";
 import { privaseeThemeDark } from "../../constants/themes";
 import React from "react";
 
@@ -22,38 +27,51 @@ export default function BeginningScreen() {
           backgroundColor: theme.colors.background,
         }}
       >
-        <View>
-          <h1 style={{ color: theme.colors.primary, textAlign: "center" }}>
-            PrivaSee
-          </h1>
-          <Text style={{ color: theme.colors.secondary, textAlign: "center" }}>
-            Welcome to PrivaSee! Tap below to begin configuring your apps.
-          </Text>
-          <View
-            style={{
-              marginTop: 20,
-            }}
-          >
-            <View
+        <Card>
+          <Card.Content>
+            <PaperText
+              variant="displayLarge"
+              style={{ color: theme.colors.onSurface, textAlign: "center" }}
+            >
+              Welcome!
+            </PaperText>
+            <PaperText
+              variant="bodyLarge"
               style={{
-                flex: 1,
-                alignItems: "center",
-                justifyContent: "center",
+                marginTop: 10,
+                marginBottom: 10,
+                color: theme.colors.onSurface,
+                textAlign: "center",
               }}
             >
-              <Link href="/(tabs)/explore" asChild>
-                <Button
-                  mode="contained"
-                  style={{ backgroundColor: theme.colors.primary }}
-                >
-                  <Text style={{ color: theme.colors.onPrimary }}>
-                    Get Started
-                  </Text>
-                </Button>
-              </Link>
+              Welcome to PrivaSee! Tap below to begin configuring your apps.
+            </PaperText>
+          </Card.Content>
+          <Card.Cover source={{ uri: "https://picsum.photos/700" }} />
+          <Card.Actions>
+            <View
+              style={{
+                marginTop: 20,
+              }}
+            >
+              <View
+                style={{
+                  flex: 1,
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <Link href="/(tabs)/explore" asChild>
+                  <Button mode="contained">
+                    <Text style={{ color: theme.colors.onPrimary }}>
+                      Get Started
+                    </Text>
+                  </Button>
+                </Link>
+              </View>
             </View>
-          </View>
-        </View>
+          </Card.Actions>
+        </Card>
       </View>
     </PaperProvider>
   );
