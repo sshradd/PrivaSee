@@ -90,7 +90,7 @@ export default function BeginningScreen() {
                   justifyContent: "center",
                 }}
               >
-                <Link href="/(tabs)/explore" asChild>
+                <Link href="/(tabs)/selectApps" asChild>
                   <Button mode="contained">
                     <Text style={{ color: theme.colors.onPrimary }}>
                       Detect Apps
