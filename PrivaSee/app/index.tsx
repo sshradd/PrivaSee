@@ -1,5 +1,5 @@
 import React from 'react';
-import BeginningScreen from './firstscreen';
+import BeginningScreen from '../components/initialpage/firstscreen';
 
 export default function HomeScreen() {
   return (

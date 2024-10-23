@@ -10,7 +10,7 @@ import { useEffect } from "react";
 import "react-native-reanimated";
 import React from "react";
 import { PaperProvider } from "react-native-paper";
-import { privaseeThemeDark, privaseeTheme } from "./themes";
+import { privaseeThemeDark, privaseeTheme } from "../constants/themes";
 import { useColorScheme } from "@/hooks/useColorScheme";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
