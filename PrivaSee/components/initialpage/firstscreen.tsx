@@ -4,6 +4,7 @@ import {
   Text,
   View,
   /* @tutinfo Import <CODE>StyleSheet</CODE> to define styles. */ StyleSheet,
+  Image,
 } from "react-native";
 import { Button, Text as PaperText } from "react-native-paper";
 import {
@@ -12,11 +13,11 @@ import {
   configureFonts,
   Card,
 } from "react-native-paper";
-import { privaseeThemeDark } from "../../constants/themes";
+import { privaseeThemeDark, privaseeTheme } from "../../constants/themes";
 import React from "react";
 
 export default function BeginningScreen() {
-  const theme = privaseeThemeDark;
+  const theme = privaseeTheme;
   return (
     <PaperProvider theme={theme}>
       <View
@@ -27,31 +28,59 @@ export default function BeginningScreen() {
           backgroundColor: theme.colors.background,
         }}
       >
+        <Card style={{ marginBottom: 50, width: 440 }}>
+          <Text
+            style={{
+              color: theme.colors.primary,
+              textAlign: "center",
+              fontSize: 50,
+              fontWeight: "bold",
+              margin: 20,
+              marginBottom: 5,
+            }}
+          >
+            Welcome!
+          </Text>
+          <Text
+            style={{
+              color: theme.colors.primary,
+              textAlign: "center",
+              fontSize: 20,
+              margin: 20,
+              marginTop: 5,
+            }}
+          >
+            Let's get you set up to secure your data.
+          </Text>
+        </Card>
         <Card>
           <Card.Content>
-            <PaperText
-              variant="displayLarge"
-              style={{ color: theme.colors.onSurface, textAlign: "center" }}
-            >
-              Welcome!
-            </PaperText>
-            <PaperText
-              variant="bodyLarge"
+            <Image
+              source={require("../../assets/images/privasee-logo.png")}
               style={{
-                marginTop: 10,
-                marginBottom: 10,
-                color: theme.colors.onSurface,
+                width: 200,
+                height: 350,
+                alignSelf: "center",
+              }}
+            />
+            <Text
+              style={{
+                color: theme.colors.primary,
                 textAlign: "center",
+                fontSize: 45,
+                fontWeight: "bold",
+                margin: 20,
+                marginBottom: 5,
               }}
             >
-              Welcome to PrivaSee! Tap below to begin configuring your apps.
-            </PaperText>
+              Secure your Data
+            </Text>
           </Card.Content>
-          <Card.Cover source={{ uri: "https://picsum.photos/700" }} />
-          <Card.Actions>
+          <Card.Actions style={{ alignSelf: "center" }}>
             <View
               style={{
-                marginTop: 20,
+                margin: 20,
+                marginBottom:50
               }}
             >
               <View
@@ -64,7 +93,7 @@ export default function BeginningScreen() {
                 <Link href="/(tabs)/explore" asChild>
                   <Button mode="contained">
                     <Text style={{ color: theme.colors.onPrimary }}>
-                      Get Started
+                      Detect Apps
                     </Text>
                   </Button>
                 </Link>

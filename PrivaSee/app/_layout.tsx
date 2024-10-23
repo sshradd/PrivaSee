@@ -1,17 +1,17 @@
 import React from "react";
-import { privaseeThemeDark } from "../constants/themes";
+import { privaseeThemeDark, privaseeTheme } from "../constants/themes";
 import { Stack } from "expo-router";
 import { PaperProvider } from "react-native-paper";
 
 export default function RootLayout() {
   return (
-    <PaperProvider theme={privaseeThemeDark}>
+    <PaperProvider theme={privaseeTheme}>
       <Stack
         screenOptions={{
           headerStyle: {
-            backgroundColor: privaseeThemeDark.colors.primary,
+            backgroundColor: privaseeTheme.colors.primary,
           },
-          headerTintColor: privaseeThemeDark.colors.onPrimary,
+          headerTintColor: privaseeTheme.colors.onPrimary,
           headerTitleStyle: {
             fontWeight: "bold",
           },
