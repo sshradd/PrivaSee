@@ -1,25 +1,28 @@
-import { collectManifestSchemes } from "expo-linking";
 import { Link } from "expo-router";
-import AppButton from "@/components/appButton";
-import {
-  View,
-  Text,
-  StyleSheet,
-  Image,
-} from "react-native";
-import { Button, Text as PaperText } from "react-native-paper";
-import {
-  PaperProvider,
-  useTheme,
-  configureFonts,
-  Card,
-} from "react-native-paper";
-import { privaseeThemeDark, privaseeTheme } from "../../constants/themes";
-import React from "react";
-import { useState } from "react";
+import { Button, Card } from "react-native-paper";
+import { PaperProvider } from "react-native-paper";
+import { privaseeTheme } from "../../constants/themes";
+import React, { useState } from "react";
+import { View, Text, StyleSheet } from "react-native";
+import AppButton from "@/components/AppButton";
 
-const selectApps = () => {
+const SelectApps = () => {
   const theme = privaseeTheme;
+
+  // State to keep track of selected apps
+  const [selectedApps, setSelectedApps] = useState<string[]>([]);
+
+  const handleAppSelect = (appName: string) => {
+    setSelectedApps((prev) => {
+      if (prev.includes(appName)) {
+        // If app is already selected, remove it
+        return prev.filter((app) => app !== appName);
+      } else {
+        // Otherwise, add it to the selected apps
+        return [...prev, appName];
+      }
+    });
+  };
 
   return (
     <View>
@@ -61,26 +64,27 @@ const selectApps = () => {
           <Card>
             <Card.Content>
               <View style={styles.appButtonContainer}>
-                <AppButton />
-                <AppButton />
-                <AppButton />
-                <AppButton />
-                <AppButton />
-                <AppButton />
+                {/* Render AppButton for each app */}
+                {["App1", "App2", "App3", "App4", "App5", "App6"].map((app, index) => (
+                  <AppButton
+                    key={index}
+                    appName={app}
+                    onPress={() => handleAppSelect(app)}
+                  />
+                ))}
               </View>
-
               <Text
-                style={{
-                  color: theme.colors.primary,
-                  textAlign: "center",
-                  fontSize: 45,
-                  fontWeight: "bold",
-                  margin: 20,
-                  marginBottom: 5,
-                }}
-              >
-              </Text>
-            </Card.Content>
+                  style={{
+                    color: theme.colors.primary,
+                    textAlign: "center",
+                    fontSize: 45,
+                    fontWeight: "bold",
+                    margin: 20,
+                    marginBottom: 5,
+                  }}
+                >
+                </Text>
+              </Card.Content>
 
             <Card.Actions style={{ alignSelf: "center" }}>
               <View
@@ -96,7 +100,14 @@ const selectApps = () => {
                     justifyContent: "center",
                   }}
                 >
-                  <Link href="/(tabs)/dashboard" asChild>
+                  {/* Pass selected apps as params to the next screen */}
+                  <Link
+                    href={{
+                      pathname: "/(tabs)/appDashboard",
+                      params: { selectedApps: JSON.stringify(selectedApps) }, // Make sure it's a string
+                    }}
+                    asChild
+                  >
                     <Button mode="contained">Done</Button>
                   </Link>
                 </View>
@@ -111,14 +122,14 @@ const selectApps = () => {
 
 const styles = StyleSheet.create({
   appButtonContainer: {
-    flexDirection: "row",     // Row layout
-    flexWrap: "wrap",         // Wrap to next line after exceeding width
+    flexDirection: "row", // Row layout
+    flexWrap: "wrap", // Wrap to next line after exceeding width
     justifyContent: "center", // Center buttons horizontally
-    alignItems: "center",     // Center buttons vertically within each row
-    gap: 15,                  // Adjust space between buttons
-    width: 400,            // Make the container flexible in width
-    paddingHorizontal: 20,    // Add padding on the sides if needed
+    alignItems: "center", // Center buttons vertically within each row
+    gap: 15, // Adjust space between buttons
+    width: 400, // Make the container flexible in width
+    paddingHorizontal: 20, // Add padding on the sides if needed
   },
 });
 
-export default selectApps;
+export default SelectApps;
