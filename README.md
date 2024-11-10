@@ -6,6 +6,8 @@ This README provides instructions to set up and run the PrivaSee UI. Follow the 
 
 ## Getting Started
 
+![](https://github.com/https://imgur.com/9TVepCV.gif)
+
 ### Prerequisites
 
 1. **Clone the Repository**:
