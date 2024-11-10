@@ -2,7 +2,7 @@
 This README provides instructions to set up and run the PrivaSee UI. Follow the steps below to ensure proper installation and usage.
 
 # Getting Started
-Prerequisites
+
 
 # 1. Clone the repository to your local machine.
 Navigate to the PrivaSee Folder:
