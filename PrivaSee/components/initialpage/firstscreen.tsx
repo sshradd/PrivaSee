@@ -28,14 +28,14 @@ export default function BeginningScreen() {
           backgroundColor: theme.colors.background,
         }}
       >
-        <Card style={{ marginBottom: 50, width: 440 }}>
+        <Card style={{ marginBottom: 10, width: 400 }}>
           <Text
             style={{
               color: theme.colors.primary,
               textAlign: "center",
               fontSize: 50,
               fontWeight: "bold",
-              margin: 20,
+              margin: 10,
               marginBottom: 5,
             }}
           >
@@ -59,7 +59,7 @@ export default function BeginningScreen() {
               source={require("../../assets/images/privasee-logo.png")}
               style={{
                 width: 200,
-                height: 350,
+                height: 215,
                 alignSelf: "center",
               }}
             />
@@ -67,7 +67,7 @@ export default function BeginningScreen() {
               style={{
                 color: theme.colors.primary,
                 textAlign: "center",
-                fontSize: 45,
+                fontSize: 40,
                 fontWeight: "bold",
                 margin: 20,
                 marginBottom: 5,

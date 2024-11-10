@@ -63,7 +63,7 @@ const AdvancedSettings: React.FC = () => {
             </View>
           </TouchableOpacity>
  
-          <Link href="/(tabs)/dashboard" asChild>
+          <Link href="/(tabs)/appDashboard" asChild>
             <Button mode="contained" style={styles.applyButton} >
               <Text style={{ color: theme.colors.onPrimary }}>Apply Settings</Text>
             </Button>

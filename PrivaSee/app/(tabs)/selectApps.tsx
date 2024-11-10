@@ -65,7 +65,7 @@ const SelectApps = () => {
             <Card.Content>
               <View style={styles.appButtonContainer}>
                 {/* Render AppButton for each app */}
-                {["App1", "App2", "App3", "App4", "App5", "App6"].map((app, index) => (
+                {["Instagram", "TikTok", "Snapchat", "X", "Spotify", "Youtube"].map((app, index) => (
                   <AppButton
                     key={index}
                     appName={app}
