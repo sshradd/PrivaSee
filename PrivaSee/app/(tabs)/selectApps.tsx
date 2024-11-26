@@ -25,7 +25,6 @@ const SelectApps = () => {
   };
 
   return (
-    <View>
       <PaperProvider theme={theme}>
         <View
           style={{
@@ -61,7 +60,7 @@ const SelectApps = () => {
             </Text>
           </Card>
 
-          <Card>
+          <Card style={{height: "50%"}}>
             <Card.Content>
               <View style={styles.appButtonContainer}>
                 {/* Render AppButton for each app */}
@@ -72,7 +71,9 @@ const SelectApps = () => {
                     onPress={() => handleAppSelect(app)}
                   />
                 ))}
+                
               </View>
+          
               <Text
                   style={{
                     color: theme.colors.primary,
@@ -85,6 +86,7 @@ const SelectApps = () => {
                 >
                 </Text>
               </Card.Content>
+              
 
             <Card.Actions style={{ alignSelf: "center" }}>
               <View
@@ -101,7 +103,12 @@ const SelectApps = () => {
                   }}
                 >
                   {/* Pass selected apps as params to the next screen */}
-                  <Link
+              
+                </View>
+              </View>
+            </Card.Actions>
+          </Card>
+          <Card style={{marginTop: "15%"}}><Link
                     href={{
                       pathname: "/(tabs)/appDashboard",
                       params: { selectedApps: JSON.stringify(selectedApps) }, // Make sure it's a string
@@ -109,14 +116,9 @@ const SelectApps = () => {
                     asChild
                   >
                     <Button mode="contained">Done</Button>
-                  </Link>
-                </View>
-              </View>
-            </Card.Actions>
-          </Card>
+                  </Link></Card>
         </View>
       </PaperProvider>
-    </View>
   );
 };
 
@@ -127,7 +129,8 @@ const styles = StyleSheet.create({
     justifyContent: "center", // Center buttons horizontally
     alignItems: "center", // Center buttons vertically within each row
     gap: 15, // Adjust space between buttons
-    width: 400, // Make the container flexible in width
+    width: "90%", // Make the container flexible in width
+    height: "100%",
     paddingHorizontal: 20, // Add padding on the sides if needed
   },
 });

@@ -16,7 +16,7 @@ import {
 import { privaseeThemeDark, privaseeTheme } from "../../constants/themes";
 import React from "react";
 
-const dashboard = () => {
+const Dashboard = () => {
   const theme = privaseeTheme;
   return (
     <View>
@@ -100,4 +100,4 @@ const dashboard = () => {
   )
 }
 
-export default dashboard
+export default Dashboard

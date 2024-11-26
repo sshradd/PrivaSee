@@ -27,7 +27,7 @@ const AppDashboard: React.FC = () => {
   return (
     
     <View style={styles.container}>
-      <Card style={{ marginBottom: 50, width: 440 }}>
+      <Card style={{ marginBottom: 20, width: 440 }}>
         <Text
           style={{
             color: theme.colors.primary,
@@ -35,7 +35,7 @@ const AppDashboard: React.FC = () => {
             fontSize: 50,
             fontWeight: "bold",
             margin: 20,
-            marginBottom: 5,
+            marginBottom: 0,
             }}
             >
             Dashboard
@@ -86,7 +86,7 @@ const AppDashboard: React.FC = () => {
                 </View>
               ))
             ) : (
-              <Text>No apps selected</Text>
+              <Text></Text>
             )}
           </View>
             <Text
@@ -108,6 +108,7 @@ const AppDashboard: React.FC = () => {
                 fontWeight: "bold",
                 margin: 20,
                 marginBottom: 5,
+                marginTop: 0,
                 }}
                 >
                 Your Activity Chart 
@@ -173,6 +174,7 @@ const styles = StyleSheet.create({
     gap: 15, // Adjust space between buttons
     width: 400, // Make the container flexible in width
     paddingHorizontal: 20, // Add padding on the sides if needed
+    marginBottom: 0,
   },
   appIconWrapper: {
     alignItems: "center",
