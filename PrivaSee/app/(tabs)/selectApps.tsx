@@ -25,100 +25,103 @@ const SelectApps = () => {
   };
 
   return (
-      <PaperProvider theme={theme}>
-        <View
-          style={{
-            flex: 1,
-            alignItems: "center",
-            justifyContent: "center",
-            backgroundColor: theme.colors.background,
-          }}
-        >
-          <Card style={{ marginBottom: 50, width: 440 }}>
+    <PaperProvider theme={theme}>
+      <View
+        style={{
+          flex: 1,
+          alignItems: "center",
+          justifyContent: "center",
+          backgroundColor: theme.colors.background,
+        }}
+      >
+        <Card style={{ marginBottom: 50, width: "90%" }}>
+          <Text
+            style={{
+              color: theme.colors.primary,
+              textAlign: "center",
+              fontSize: 50,
+              fontWeight: "bold",
+              margin: 20,
+              marginBottom: 5,
+            }}
+          >
+            Choose apps.
+          </Text>
+          <Text
+            style={{
+              color: theme.colors.primary,
+              textAlign: "center",
+              fontSize: 20,
+              margin: 20,
+              marginTop: 5,
+            }}
+          >
+            Select the apps you would like to track.
+          </Text>
+        </Card>
+
+        <Card style={{ height: "30%" }}>
+          <Card.Content>
+            <View style={styles.appButtonContainer}>
+              {/* Render AppButton for each app */}
+              {[
+                "Instagram",
+                "TikTok",
+                "Snapchat",
+                "X",
+                "Spotify",
+                "Youtube",
+              ].map((app, index) => (
+                <AppButton
+                  key={index}
+                  appName={app}
+                  onPress={() => handleAppSelect(app)}
+                />
+              ))}
+            </View>
+
             <Text
               style={{
                 color: theme.colors.primary,
                 textAlign: "center",
-                fontSize: 50,
+                fontSize: 45,
                 fontWeight: "bold",
-                margin: 20,
+                margin: 5,
                 marginBottom: 5,
               }}
-            >
-              Choose apps.
-            </Text>
-            <Text
+            ></Text>
+          </Card.Content>
+
+          <Card.Actions style={{ alignSelf: "center" }}>
+            {/* <View
               style={{
-                color: theme.colors.primary,
-                textAlign: "center",
-                fontSize: 20,
                 margin: 20,
-                marginTop: 5,
+                marginBottom: 50,
               }}
             >
-              Select the apps you would like to track.
-            </Text>
-          </Card>
-
-          <Card style={{height: "50%"}}>
-            <Card.Content>
-              <View style={styles.appButtonContainer}>
-                {/* Render AppButton for each app */}
-                {["Instagram", "TikTok", "Snapchat", "X", "Spotify", "Youtube"].map((app, index) => (
-                  <AppButton
-                    key={index}
-                    appName={app}
-                    onPress={() => handleAppSelect(app)}
-                  />
-                ))}
-                
-              </View>
-          
-              <Text
-                  style={{
-                    color: theme.colors.primary,
-                    textAlign: "center",
-                    fontSize: 45,
-                    fontWeight: "bold",
-                    margin: 20,
-                    marginBottom: 5,
-                  }}
-                >
-                </Text>
-              </Card.Content>
-              
-
-            <Card.Actions style={{ alignSelf: "center" }}>
               <View
                 style={{
-                  margin: 20,
-                  marginBottom: 50,
+                  flex: 1,
+                  alignItems: "center",
+                  justifyContent: "center",
                 }}
               >
-                <View
-                  style={{
-                    flex: 1,
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  {/* Pass selected apps as params to the next screen */}
-              
-                </View>
               </View>
-            </Card.Actions>
-          </Card>
-          <Card style={{marginTop: "15%"}}><Link
-                    href={{
-                      pathname: "/(tabs)/appDashboard",
-                      params: { selectedApps: JSON.stringify(selectedApps) }, // Make sure it's a string
-                    }}
-                    asChild
-                  >
-                    <Button mode="contained">Done</Button>
-                  </Link></Card>
-        </View>
-      </PaperProvider>
+            </View> */}
+            <Link
+              href={{
+                pathname: "/(tabs)/appDashboard",
+                params: { selectedApps: JSON.stringify(selectedApps) }, // Make sure it's a string
+              }}
+              asChild
+            >
+              <Button mode="contained">Done</Button>
+            </Link>
+          </Card.Actions>
+        </Card>
+        {/* <Card style={{ marginTop: "15%" }}></Card> */}
+      </View>
+    </PaperProvider>
   );
 };
 
@@ -132,6 +135,7 @@ const styles = StyleSheet.create({
     width: "90%", // Make the container flexible in width
     height: "100%",
     paddingHorizontal: 20, // Add padding on the sides if needed
+    marginBottom: 0,
   },
 });
 
