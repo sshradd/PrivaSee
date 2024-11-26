@@ -1,14 +1,11 @@
 import { Button, Card } from "react-native-paper";
 import { privaseeTheme } from "../../constants/themes";
-import { View, Text, StyleSheet, Image, Settings} from "react-native";
+import { View, Text, StyleSheet, Image, Settings } from "react-native";
 import React, { useState } from "react";
-import { useRoute, useNavigation } from "@react-navigation/native"; // Use route to access 
+import { useRoute, useNavigation } from "@react-navigation/native"; // Use route to access
 import { PaperProvider } from "react-native-paper";
 import AppButton from "@/components/AppButton";
 import { Link } from "expo-router";
-
-
-
 
 // Define a type for the route parameters
 type RouteParams = {
@@ -19,13 +16,14 @@ const AppDashboard: React.FC = () => {
   const theme = privaseeTheme;
   const route = useRoute();
   const navigation = useNavigation();
-  const {selectedApps} = route.params; // Extract selected apps
+  const { selectedApps } = route.params; // Extract selected apps
 
   // Parse selectedApps if it's a string (from JSON.stringify)
-  const apps = Array.isArray(selectedApps) ? selectedApps : JSON.parse(selectedApps || "[]");
+  const apps = Array.isArray(selectedApps)
+    ? selectedApps
+    : JSON.parse(selectedApps || "[]");
 
   return (
-    
     <View style={styles.container}>
       <Card style={{ marginBottom: 20, width: 440 }}>
         <Text
@@ -36,9 +34,9 @@ const AppDashboard: React.FC = () => {
             fontWeight: "bold",
             margin: 20,
             marginBottom: 0,
-            }}
-            >
-            Dashboard
+          }}
+        >
+          Dashboard
         </Text>
         <Text
           style={{
@@ -47,9 +45,9 @@ const AppDashboard: React.FC = () => {
             fontSize: 20,
             margin: 20,
             marginTop: 5,
-        }}
+          }}
         >
-        Monitor your footprint here. 
+          Monitor your footprint here.
         </Text>
         <Text
           style={{
@@ -58,10 +56,9 @@ const AppDashboard: React.FC = () => {
             fontSize: 20,
             margin: 20,
             marginTop: 5,
-        }}
+          }}
         >
-        Press an app icon to see
-        app specific settings.
+          Press an app icon to see app specific settings.
         </Text>
       </Card>
       <Card>
@@ -71,68 +68,75 @@ const AppDashboard: React.FC = () => {
             {apps.length > 0 ? (
               apps.map((app, index) => (
                 <View key={index} style={styles.appIconWrapper}>
-                  <Link                     
+                  <Link
                     href={{
-                      pathname: "/(tabs)/settings"
+                      pathname: "/(tabs)/settings",
                     }}
                     asChild
                   >
-                    <AppButton
-                      key={index}
-                      appName={app}
-                      onPress={() => {}}
-                    />
+                    <AppButton key={index} appName={app} onPress={() => {}} />
                   </Link>
                 </View>
               ))
             ) : (
-              <Text></Text>
+              <Text
+                style={{
+                  color: theme.colors.shadow,
+                  textAlign: "center",
+                  fontSize: 15,
+                }}
+              >
+                No Apps Selected!
+              </Text>
             )}
           </View>
-            <Text
-              style={{
-                color: theme.colors.primary,
-                textAlign: "center",
-                fontSize: 45,
-                fontWeight: "bold",
-                margin: 20,
-                marginBottom: 5,
-                }}
-            >
-            </Text>
-            <Text
-              style={{
-                color: theme.colors.primary,
-                textAlign: "center",
-                fontSize: 20,
-                fontWeight: "bold",
-                margin: 20,
-                marginBottom: 5,
-                marginTop: 0,
-                }}
-                >
-                Your Activity Chart 
-            </Text>
-            <Image
-              source={require("../../assets/images/activity-chart.png")}
-              style={{
-                marginTop: 10,
-                width: 200,
-                height: 200,
-                alignSelf: "center",
-              }}
-            />
-            <View style={styles.usageStatsContainer}>
-              <View style={styles.usageStat}>
-                <View style={[styles.dot, { backgroundColor: "rgb(54, 19, 90)"}]} />
-                <Text style={styles.statLabel}>Your Files</Text>
-                <Text style={styles.statPercentage}>63%</Text>
-              </View>
-              <View style={styles.separator} />
-              <View style={styles.usageStat}>
-                <View style={[styles.dot, { backgroundColor: "rgb(95, 107, 233)"}]} />
-                <Text style={styles.statLabel}>System</Text>
-                <Text style={styles.statPercentage}>25%</Text>
+          <Text
+            style={{
+              color: theme.colors.primary,
+              textAlign: "center",
+              fontSize: 45,
+              fontWeight: "bold",
+              margin: 20,
+              marginBottom: 5,
+            }}
+          ></Text>
+          <Text
+            style={{
+              color: theme.colors.primary,
+              textAlign: "center",
+              fontSize: 20,
+              fontWeight: "bold",
+              margin: 20,
+              marginBottom: 5,
+              marginTop: 0,
+            }}
+          >
+            Your Activity Chart
+          </Text>
+          <Image
+            source={require("../../assets/images/activity-chart.png")}
+            style={{
+              marginTop: 10,
+              width: 200,
+              height: 200,
+              alignSelf: "center",
+            }}
+          />
+          <View style={styles.usageStatsContainer}>
+            <View style={styles.usageStat}>
+              <View
+                style={[styles.dot, { backgroundColor: "rgb(54, 19, 90)" }]}
+              />
+              <Text style={styles.statLabel}>Your Files</Text>
+              <Text style={styles.statPercentage}>63%</Text>
+            </View>
+            <View style={styles.separator} />
+            <View style={styles.usageStat}>
+              <View
+                style={[styles.dot, { backgroundColor: "rgb(95, 107, 233)" }]}
+              />
+              <Text style={styles.statLabel}>System</Text>
+              <Text style={styles.statPercentage}>25%</Text>
             </View>
           </View>
         </Card.Content>

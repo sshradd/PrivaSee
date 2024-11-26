@@ -1,12 +1,12 @@
-import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import BeginningScreen from '../components/initialpage/firstscreen';
-import SelectApps from './(tabs)/selectApps'; 
-import AppDashboard from './(tabs)/appDashboard'; 
-import Dashboard from './(tabs)/dashboard'; 
-import EditConfigs from './(tabs)/settings';
-import AdvancedSettings from './(tabs)/advancedset';
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import BeginningScreen from "../components/initialpage/firstscreen";
+import SelectApps from "./(tabs)/selectApps";
+import AppDashboard from "./(tabs)/appDashboard";
+import Dashboard from "./(tabs)/dashboard";
+import EditConfigs from "./(tabs)/settings";
+import AdvancedSettings from "./(tabs)/advancedset";
 
 // Define your navigation parameter list
 export type RootStackParamList = {
@@ -26,12 +26,36 @@ export default function HomeScreen() {
     <React.Fragment>
       <NavigationContainer independent={true}>
         <Stack.Navigator initialRouteName="Beginning">
-          <Stack.Screen name="Beginning" component={BeginningScreen} />
-          <Stack.Screen name="Dashboard" component={Dashboard} />
-          <Stack.Screen name="SelectApps" component={SelectApps} />
-          <Stack.Screen name="AppDashboard" component={AppDashboard} />
-          <Stack.Screen name="EditConfigs" component={EditConfigs} />
-          <Stack.Screen name="AdvancedSettings" component={AdvancedSettings} /> 
+          <Stack.Screen
+            name="Beginning"
+            component={BeginningScreen}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Dashboard"
+            component={Dashboard}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="SelectApps"
+            component={SelectApps}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="AppDashboard"
+            component={AppDashboard}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="EditConfigs"
+            component={EditConfigs}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="AdvancedSettings"
+            component={AdvancedSettings}
+            options={{ headerShown: false }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </React.Fragment>
