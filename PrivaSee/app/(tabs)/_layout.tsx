@@ -60,9 +60,15 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen name="oldindex" options={{ href: null }} />
-      <Tabs.Screen name="settings" options={{ href: null }} />
+      <Tabs.Screen
+        name="settings"
+        options={{ headerShown: false, href: null }}
+      />
       <Tabs.Screen name="dashboard" options={{ href: null }} />
-      <Tabs.Screen name="advancedset" options={{ href: null }} />
+      <Tabs.Screen
+        name="advancedset"
+        options={{ headerShown: false, href: null }}
+      />
     </Tabs>
   );
 }
