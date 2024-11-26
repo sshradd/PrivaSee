@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import { useRoute, useNavigation } from "@react-navigation/native"; // Use route to access
 import { PaperProvider } from "react-native-paper";
 import AppButton from "@/components/AppButton";
+import AppSettingsButton from "@/components/AppSettingsButton";
 import { Link } from "expo-router";
 
 // Define a type for the route parameters
@@ -74,7 +75,7 @@ const AppDashboard: React.FC = () => {
                     }}
                     asChild
                   >
-                    <AppButton key={index} appName={app} onPress={() => {}} />
+                    <AppSettingsButton key={index} appName={app} onPress={() => {}} />
                   </Link>
                 </View>
               ))

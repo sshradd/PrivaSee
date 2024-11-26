@@ -115,7 +115,7 @@ const SelectApps = () => {
               }}
               asChild
             >
-              <Button mode="contained">Done</Button>
+              <Button mode="contained">Apply</Button>
             </Link>
           </Card.Actions>
         </Card>
