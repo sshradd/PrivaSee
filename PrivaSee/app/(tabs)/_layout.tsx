@@ -37,6 +37,7 @@ export default function TabLayout() {
         name="appDashboard"
         options={{
           title: "Dashboard",
+          headerShown: false,
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon
               name={focused ? "home" : "home-outline"}
@@ -49,6 +50,7 @@ export default function TabLayout() {
         name="selectApps"
         options={{
           title: "Select Apps",
+          headerShown: false,
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon
               name={focused ? "apps" : "apps-outline"}
