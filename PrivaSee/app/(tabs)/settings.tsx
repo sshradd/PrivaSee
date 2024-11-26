@@ -3,6 +3,8 @@ import { Text, View, StyleSheet, Switch, Modal } from "react-native";
 import { Button, Card, PaperProvider } from "react-native-paper";
 import { Link } from "expo-router";
 import { privaseeTheme } from "../../constants/themes";
+import { List } from "react-native-paper";
+import SettingInfoAccordion from "@/components/SettingInfoAccordion";
 
 type ToggleSwitchProps = {
   isEnabled: boolean;
@@ -47,25 +49,38 @@ const EditConfigs: React.FC = () => {
 
           <Text style={styles.sectionTitle}>Privacy Levels:</Text>
           <View style={styles.underlinedSection}>
-            <Text
+            {/* <Text
               style={[styles.settingLabel, { color: theme.colors.primary }]}
             >
               Low Setting
-            </Text>
+            </Text> */}
+            <SettingInfoAccordion title="Low Setting">
+              <Text>Prioritize convenience over privacy: this configuration applies the minimal amount of privacy in order to maximize the app's ease of use.</Text>
+            </SettingInfoAccordion>
           </View>
           <View style={styles.underlinedSection}>
-            <Text
+            {/* <Text
               style={[styles.settingLabel, { color: theme.colors.primary }]}
             >
               Medium Setting
-            </Text>
+            </Text> */}
+            <SettingInfoAccordion
+              title="Medium Setting"
+            >
+              <Text>Balanced convenience and privacy: the app will be reasonably secure while the user can still access commonly-used features easily.</Text>
+            </SettingInfoAccordion>
           </View>
           <View style={styles.underlinedSection}>
-            <Text
+            {/* <Text
               style={[styles.settingLabel, { color: theme.colors.primary }]}
             >
               High Setting
-            </Text>
+            </Text> */}
+            <SettingInfoAccordion
+              title="High Setting"
+            >
+              <Text>High Privacy: this setting prioritizes the user's privacy above all else, which may lead to some inconveniences during usage.</Text>
+            </SettingInfoAccordion>
           </View>
 
           <Text style={styles.sectionTitle}>Recommended Setting Applied:</Text>
