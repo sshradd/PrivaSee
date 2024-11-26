@@ -120,15 +120,13 @@ const EditConfigs: React.FC = () => {
           <View style={styles.modalContainer}>
             <View style={styles.modalContent}>
               <Text style={styles.modalText}>Settings Applied!</Text>
-              <Link href="/(tabs)/appDashboard" asChild>
-                <Button
-                  mode="contained"
-                  onPress={() => setModalVisible(false)}
-                  style={styles.modalButton}
-                >
-                  OK
-                </Button>
-              </Link>
+              <Button
+                mode="contained"
+                onPress={() => setModalVisible(false)}
+                style={styles.modalButton}
+              >
+                OK
+              </Button>
             </View>
           </View>
         </Modal>
