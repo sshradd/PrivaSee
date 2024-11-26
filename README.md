@@ -6,6 +6,8 @@ This README provides instructions to set up and run the PrivaSee UI. Follow the 
 
 ## Getting Started
 
+<img src='https://imgur.com/9TVepCV.gif' title='Video Demo' width='' alt='Video Demo' /> <br>
+
 ### Prerequisites
 
 1. **Clone the Repository**:
