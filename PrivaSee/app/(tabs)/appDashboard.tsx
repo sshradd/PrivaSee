@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import { useRoute, useNavigation } from "@react-navigation/native"; // Use route to access
 import { PaperProvider } from "react-native-paper";
 import AppButton from "@/components/AppButton";
+import AppSettingsButton from "@/components/AppSettingsButton";
 import { Link } from "expo-router";
 
 // Define a type for the route parameters
@@ -25,7 +26,7 @@ const AppDashboard: React.FC = () => {
 
   return (
     <View style={styles.container}>
-      <Card style={{ marginBottom: 20, width: 440 }}>
+      <Card style={{ marginBottom: 20, width: "90%" }}>
         <Text
           style={{
             color: theme.colors.primary,
@@ -61,8 +62,8 @@ const AppDashboard: React.FC = () => {
           Press an app icon to see app specific settings.
         </Text>
       </Card>
-      <Card>
-        <Card.Content>
+      <Card style={{ width: "90%" }}>
+        <Card.Content style={{ alignItems: "center" }}>
           {/* Render Selected Apps */}
           <View style={styles.appsContainer}>
             {apps.length > 0 ? (
@@ -74,7 +75,7 @@ const AppDashboard: React.FC = () => {
                     }}
                     asChild
                   >
-                    <AppButton key={index} appName={app} onPress={() => {}} />
+                    <AppSettingsButton key={index} appName={app} onPress={() => {}} />
                   </Link>
                 </View>
               ))
@@ -94,21 +95,11 @@ const AppDashboard: React.FC = () => {
             style={{
               color: theme.colors.primary,
               textAlign: "center",
-              fontSize: 45,
-              fontWeight: "bold",
-              margin: 20,
-              marginBottom: 5,
-            }}
-          ></Text>
-          <Text
-            style={{
-              color: theme.colors.primary,
-              textAlign: "center",
               fontSize: 20,
               fontWeight: "bold",
               margin: 20,
               marginBottom: 5,
-              marginTop: 0,
+              marginTop: 10,
             }}
           >
             Your Activity Chart
@@ -202,7 +193,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 20,
+    //marginTop: 20,
     padding: 10,
     backgroundColor: "#F5F5F5",
     borderRadius: 20,

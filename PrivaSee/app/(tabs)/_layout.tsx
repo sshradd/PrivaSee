@@ -37,6 +37,7 @@ export default function TabLayout() {
         name="appDashboard"
         options={{
           title: "Dashboard",
+          headerShown: false,
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon
               name={focused ? "home" : "home-outline"}
@@ -49,6 +50,7 @@ export default function TabLayout() {
         name="selectApps"
         options={{
           title: "Select Apps",
+          headerShown: false,
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon
               name={focused ? "apps" : "apps-outline"}
@@ -58,9 +60,15 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen name="oldindex" options={{ href: null }} />
-      <Tabs.Screen name="settings" options={{ href: null }} />
+      <Tabs.Screen
+        name="settings"
+        options={{ headerShown: false, href: null }}
+      />
       <Tabs.Screen name="dashboard" options={{ href: null }} />
-      <Tabs.Screen name="advancedset" options={{ href: null }} />
+      <Tabs.Screen
+        name="advancedset"
+        options={{ headerShown: false, href: null }}
+      />
     </Tabs>
   );
 }

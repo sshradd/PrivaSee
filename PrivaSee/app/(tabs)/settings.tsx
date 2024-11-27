@@ -3,12 +3,14 @@ import { Text, View, StyleSheet, Switch, Modal } from "react-native";
 import { Button, Card, PaperProvider } from "react-native-paper";
 import { Link } from "expo-router";
 import { privaseeTheme } from "../../constants/themes";
- 
+import { List } from "react-native-paper";
+import SettingInfoAccordion from "@/components/SettingInfoAccordion";
+
 type ToggleSwitchProps = {
   isEnabled: boolean;
   onToggle: () => void;
 };
- 
+
 const ToggleSwitch: React.FC<ToggleSwitchProps> = ({ isEnabled, onToggle }) => (
   <Switch
     trackColor={{ false: "#767577", true: privaseeTheme.colors.primary }}
@@ -17,68 +19,112 @@ const ToggleSwitch: React.FC<ToggleSwitchProps> = ({ isEnabled, onToggle }) => (
     value={isEnabled}
   />
 );
- 
+
 const EditConfigs: React.FC = () => {
   const theme = privaseeTheme;
   const [passwordProtection, setPasswordProtection] = useState(false);
   const [lockingApps, setLockingApps] = useState(false);
   const [twoFactorAuth, setTwoFactorAuth] = useState(false);
- 
+
   const [lowEnabled, setLowEnabled] = useState(false);
   const [medEnabled, setMedEnabled] = useState(true);
   const [highEnabled, setHighEnabled] = useState(false);
- 
+
   const [modalVisible, setModalVisible] = useState(false);
- 
+
   const applySettings = () => {
     setModalVisible(true); // Show modal when "Apply Settings" is clicked
   };
- 
+
   return (
     <PaperProvider theme={theme}>
-      <View style={[styles.container, { backgroundColor: theme.colors.background }]}>
+      <View
+        style={[styles.container, { backgroundColor: theme.colors.background }]}
+      >
         <Card style={styles.card}>
           <Text style={[styles.header, { color: theme.colors.primary }]}>
             Edit Configs
           </Text>
           <Text style={styles.subHeader}>Fine-tune your privacy settings</Text>
- 
+
           <Text style={styles.sectionTitle}>Privacy Levels:</Text>
           <View style={styles.underlinedSection}>
-            <Text style={styles.settingLabel}>Low Setting: what entails low</Text>
+            {/* <Text
+              style={[styles.settingLabel, { color: theme.colors.primary }]}
+            >
+              Low Setting
+            </Text> */}
+            <SettingInfoAccordion title="Low Setting">
+              <Text>Prioritize convenience over privacy: this configuration applies the minimal amount of privacy in order to maximize the app's ease of use.</Text>
+            </SettingInfoAccordion>
           </View>
           <View style={styles.underlinedSection}>
-            <Text style={styles.settingLabel}>Med Setting: what entails med</Text>
+            {/* <Text
+              style={[styles.settingLabel, { color: theme.colors.primary }]}
+            >
+              Medium Setting
+            </Text> */}
+            <SettingInfoAccordion
+              title="Medium Setting"
+            >
+              <Text>Balanced convenience and privacy: the app will be reasonably secure while the user can still access commonly-used features easily.</Text>
+            </SettingInfoAccordion>
           </View>
           <View style={styles.underlinedSection}>
-            <Text style={styles.settingLabel}>High Setting: what entails high</Text>
+            {/* <Text
+              style={[styles.settingLabel, { color: theme.colors.primary }]}
+            >
+              High Setting
+            </Text> */}
+            <SettingInfoAccordion
+              title="High Setting"
+            >
+              <Text>High Privacy: this setting prioritizes the user's privacy above all else, which may lead to some inconveniences during usage.</Text>
+            </SettingInfoAccordion>
           </View>
- 
+
           <Text style={styles.sectionTitle}>Recommended Setting Applied:</Text>
           <View style={styles.section}>
             <Text style={styles.settingLabel}>Low</Text>
-            <ToggleSwitch isEnabled={lowEnabled} onToggle={() => setLowEnabled(!lowEnabled)} />
+            <ToggleSwitch
+              isEnabled={lowEnabled}
+              onToggle={() => setLowEnabled(!lowEnabled)}
+            />
           </View>
           <View style={styles.section}>
             <Text style={styles.settingLabel}>Medium</Text>
-            <ToggleSwitch isEnabled={medEnabled} onToggle={() => setMedEnabled(!medEnabled)} />
+            <ToggleSwitch
+              isEnabled={medEnabled}
+              onToggle={() => setMedEnabled(!medEnabled)}
+            />
           </View>
           <View style={styles.section}>
             <Text style={styles.settingLabel}>High</Text>
-            <ToggleSwitch isEnabled={highEnabled} onToggle={() => setHighEnabled(!highEnabled)} />
+            <ToggleSwitch
+              isEnabled={highEnabled}
+              onToggle={() => setHighEnabled(!highEnabled)}
+            />
           </View>
- 
+
           <Link href="/(tabs)/advancedset" asChild>
             <Button mode="outlined" style={styles.advancedButton}>
-              <Text style={{ color: theme.colors.primary }}>Advanced Settings</Text>
+              <Text style={{ color: theme.colors.primary }}>
+                Advanced Settings
+              </Text>
             </Button>
           </Link>
- 
-          <Button mode="contained" style={styles.applyButton} onPress={applySettings}>
-            <Text style={{ color: theme.colors.onPrimary }}>Apply Settings</Text>
+
+          <Button
+            mode="contained"
+            style={styles.applyButton}
+            onPress={applySettings}
+          >
+            <Text style={{ color: theme.colors.onPrimary }}>
+              Apply Settings
+            </Text>
           </Button>
         </Card>
- 
+
         {/* Modal for "Settings Applied!" message */}
         <Modal
           animationType="slide"
@@ -89,10 +135,13 @@ const EditConfigs: React.FC = () => {
           <View style={styles.modalContainer}>
             <View style={styles.modalContent}>
               <Text style={styles.modalText}>Settings Applied!</Text>
-              <Link href="/(tabs)/appDashboard" asChild><Button mode="contained" onPress={() => setModalVisible(false)} style={styles.modalButton}>
+              <Button
+                mode="contained"
+                onPress={() => setModalVisible(false)}
+                style={styles.modalButton}
+              >
                 OK
-              </Button></Link>
-              
+              </Button>
             </View>
           </View>
         </Modal>
@@ -100,7 +149,7 @@ const EditConfigs: React.FC = () => {
     </PaperProvider>
   );
 };
- 
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -173,6 +222,5 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
 });
- 
 
 export default EditConfigs;
