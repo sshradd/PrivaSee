@@ -22,18 +22,19 @@ const ToggleSwitch: React.FC<ToggleSwitchProps> = ({ isEnabled, onToggle }) => (
 
 const EditConfigs: React.FC = () => {
   const theme = privaseeTheme;
-  const [passwordProtection, setPasswordProtection] = useState(false);
-  const [lockingApps, setLockingApps] = useState(false);
-  const [twoFactorAuth, setTwoFactorAuth] = useState(false);
 
-  const [lowEnabled, setLowEnabled] = useState(false);
-  const [medEnabled, setMedEnabled] = useState(true);
-  const [highEnabled, setHighEnabled] = useState(false);
+  // Replaced individual toggle states with a single state to track the active toggle
+  const [selectedToggle, setSelectedToggle] = useState("medium"); // Default to "medium"
 
   const [modalVisible, setModalVisible] = useState(false);
 
   const applySettings = () => {
     setModalVisible(true); // Show modal when "Apply Settings" is clicked
+  };
+
+  const toggleHandler = (toggleName: string) => {
+    // Function to update the selected toggle
+    setSelectedToggle(toggleName);
   };
 
   return (
@@ -49,37 +50,29 @@ const EditConfigs: React.FC = () => {
 
           <Text style={styles.sectionTitle}>Privacy Levels:</Text>
           <View style={styles.underlinedSection}>
-            {/* <Text
-              style={[styles.settingLabel, { color: theme.colors.primary }]}
-            >
-              Low Setting
-            </Text> */}
             <SettingInfoAccordion title="Low Setting">
-              <Text>Prioritize convenience over privacy: this configuration applies the minimal amount of privacy in order to maximize the app's ease of use.</Text>
+              <Text>
+                Prioritize convenience over privacy: this configuration applies
+                the minimal amount of privacy in order to maximize the app's
+                ease of use.
+              </Text>
             </SettingInfoAccordion>
           </View>
           <View style={styles.underlinedSection}>
-            {/* <Text
-              style={[styles.settingLabel, { color: theme.colors.primary }]}
-            >
-              Medium Setting
-            </Text> */}
-            <SettingInfoAccordion
-              title="Medium Setting"
-            >
-              <Text>Balanced convenience and privacy: the app will be reasonably secure while the user can still access commonly-used features easily.</Text>
+            <SettingInfoAccordion title="Medium Setting">
+              <Text>
+                Balanced convenience and privacy: the app will be reasonably
+                secure while the user can still access commonly-used features
+                easily.
+              </Text>
             </SettingInfoAccordion>
           </View>
           <View style={styles.underlinedSection}>
-            {/* <Text
-              style={[styles.settingLabel, { color: theme.colors.primary }]}
-            >
-              High Setting
-            </Text> */}
-            <SettingInfoAccordion
-              title="High Setting"
-            >
-              <Text>High Privacy: this setting prioritizes the user's privacy above all else, which may lead to some inconveniences during usage.</Text>
+            <SettingInfoAccordion title="High Setting">
+              <Text>
+                High Privacy: this setting prioritizes the user's privacy above
+                all else, which may lead to some inconveniences during usage.
+              </Text>
             </SettingInfoAccordion>
           </View>
 
@@ -87,22 +80,22 @@ const EditConfigs: React.FC = () => {
           <View style={styles.section}>
             <Text style={styles.settingLabel}>Low</Text>
             <ToggleSwitch
-              isEnabled={lowEnabled}
-              onToggle={() => setLowEnabled(!lowEnabled)}
+              isEnabled={selectedToggle === "low"} // Check if "low" is active
+              onToggle={() => toggleHandler("low")} // Activate "low"
             />
           </View>
           <View style={styles.section}>
             <Text style={styles.settingLabel}>Medium</Text>
             <ToggleSwitch
-              isEnabled={medEnabled}
-              onToggle={() => setMedEnabled(!medEnabled)}
+              isEnabled={selectedToggle === "medium"} // Check if "medium" is active
+              onToggle={() => toggleHandler("medium")} // Activate "medium"
             />
           </View>
           <View style={styles.section}>
             <Text style={styles.settingLabel}>High</Text>
             <ToggleSwitch
-              isEnabled={highEnabled}
-              onToggle={() => setHighEnabled(!highEnabled)}
+              isEnabled={selectedToggle === "high"} // Check if "high" is active
+              onToggle={() => toggleHandler("high")} // Activate "high"
             />
           </View>
 

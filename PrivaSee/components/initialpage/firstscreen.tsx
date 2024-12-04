@@ -3,21 +3,22 @@ import { Link } from "expo-router";
 import {
   Text,
   View,
-  /* @tutinfo Import <CODE>StyleSheet</CODE> to define styles. */ StyleSheet,
+  StyleSheet,
   Image,
+  TouchableOpacity,
 } from "react-native";
 import { Button, Text as PaperText } from "react-native-paper";
-import {
-  PaperProvider,
-  useTheme,
-  configureFonts,
-  Card,
+import { 
+  PaperProvider, 
+  useTheme, 
+  Card 
 } from "react-native-paper";
 import { privaseeThemeDark, privaseeTheme } from "../../constants/themes";
 import React from "react";
 
 export default function BeginningScreen() {
   const theme = privaseeTheme;
+
   return (
     <PaperProvider theme={theme}>
       <View
@@ -28,6 +29,30 @@ export default function BeginningScreen() {
           backgroundColor: theme.colors.background,
         }}
       >
+        {/* App Status Icon/Button */}
+        <TouchableOpacity
+          style={{
+            position: "absolute",
+            top: 40,
+            right: 20,
+            backgroundColor: theme.colors.primary,
+            padding: 10,
+            borderRadius: 50,
+          }}
+          onPress={() => alert("App Health: Great and up-to-date. Version 2.0.0 ")} // Alert as a placeholder
+        >
+          <Text
+            style={{
+              color: theme.colors.onPrimary,
+              fontWeight: "bold",
+              fontSize: 12,
+            }}
+          >
+            App Health
+          </Text>
+        </TouchableOpacity>
+
+        {/* Main Content */}
         <Card style={{ marginBottom: 10, width: 400 }}>
           <Text
             style={{
@@ -52,15 +77,13 @@ export default function BeginningScreen() {
           >
             Let's get you set up to secure your data.
           </Text>
-
           <Link href="/(tabs)/selectApps" asChild>
-                  <Button mode="contained">
-                    <Text style={{ color: theme.colors.onPrimary }}>
-                      Detect Apps
-                    </Text>
-                  </Button>
-                </Link>
+            <Button mode="contained">
+              <Text style={{ color: theme.colors.onPrimary }}>Detect Apps</Text>
+            </Button>
+          </Link>
         </Card>
+
         <Card>
           <Card.Content>
             <Image
@@ -88,7 +111,7 @@ export default function BeginningScreen() {
             <View
               style={{
                 margin: 20,
-                marginBottom:50
+                marginBottom: 50,
               }}
             >
               <View
@@ -97,9 +120,7 @@ export default function BeginningScreen() {
                   alignItems: "center",
                   justifyContent: "center",
                 }}
-              >
-                
-              </View>
+              ></View>
             </View>
           </Card.Actions>
         </Card>
@@ -111,7 +132,6 @@ export default function BeginningScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    /* @tutinfo Add the value of <CODE>backgroundColor</CODE> property with <CODE>'#25292e'</CODE>.*/
     alignItems: "center",
     justifyContent: "center",
   },
