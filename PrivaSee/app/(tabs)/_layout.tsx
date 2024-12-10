@@ -64,6 +64,54 @@ export default function TabLayout() {
         name="settings"
         options={{ headerShown: false, href: null }}
       />
+      <Tabs.Screen
+        name="settingsSnapchat"
+        options={{ headerShown: false, href: null }}
+      />
+      <Tabs.Screen
+        name="settingsInstagram"
+        options={{ headerShown: false, href: null }}
+      />
+      <Tabs.Screen
+        name="settingsTikTok"
+        options={{ headerShown: false, href: null }}
+      />
+      <Tabs.Screen
+        name="settingsX"
+        options={{ headerShown: false, href: null }}
+      />
+      <Tabs.Screen
+        name="settingsSpotify"
+        options={{ headerShown: false, href: null }}
+      />
+      <Tabs.Screen
+        name="settingsYoutube"
+        options={{ headerShown: false, href: null }}
+      />
+      <Tabs.Screen
+        name="advancedsetSnapchat"
+        options={{ headerShown: false, href: null }}
+      />
+      <Tabs.Screen
+        name="advancedsetInstagram"
+        options={{ headerShown: false, href: null }}
+      />
+      <Tabs.Screen
+        name="advancedsetTikTok"
+        options={{ headerShown: false, href: null }}
+      />
+      <Tabs.Screen
+        name="advancedsetX"
+        options={{ headerShown: false, href: null }}
+      />
+      <Tabs.Screen
+        name="advancedsetSpotify"
+        options={{ headerShown: false, href: null }}
+      />
+      <Tabs.Screen
+        name="advancedsetYoutube"
+        options={{ headerShown: false, href: null }}
+      />
       <Tabs.Screen name="dashboard" options={{ href: null }} />
       <Tabs.Screen
         name="advancedset"

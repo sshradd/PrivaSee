@@ -71,7 +71,7 @@ const AppDashboard: React.FC = () => {
                 <View key={index} style={styles.appIconWrapper}>
                   <Link
                     href={{
-                      pathname: "/(tabs)/settings",
+                      pathname: `${"/(tabs)/settings" + app}`,
                     }}
                     asChild
                   >
