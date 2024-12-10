@@ -11,10 +11,12 @@ import { PasswordAlert } from "./PasswordAlert";
 import { Card } from "react-native-paper";
 
 /*Alert center that can hold lots of password alert components*/
-export const PasswordAlertCenter = ({ children }) => {
+import { ReactNode } from "react";
+
+export const PasswordAlertCenter = ({ children }: { children: ReactNode }) => {
   return (
     <Card style={{
-        maxWidth: "90%",
+        maxWidth: "100%",
     }}>
       <Card.Content
         style={{

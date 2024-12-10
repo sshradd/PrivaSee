@@ -30,6 +30,8 @@ const styles = StyleSheet.create({
   default: {
     backgroundColor: 'white',
     borderColor: "rgb(71, 85, 182)",
+    margin: 5,
+    alignItems: 'center',
   },
   pressed: {
     backgroundColor: "rgba(71, 85, 182, 0.5)", 

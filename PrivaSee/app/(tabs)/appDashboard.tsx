@@ -2,11 +2,12 @@ import { Button, Card } from "react-native-paper";
 import { privaseeTheme } from "../../constants/themes";
 import { View, Text, StyleSheet, Image, Settings } from "react-native";
 import React, { useState } from "react";
-import { useRoute, useNavigation } from "@react-navigation/native"; // Use route to access
+import { useRoute, useNavigation, RouteProp } from "@react-navigation/native"; // Use route to access
 import { PaperProvider } from "react-native-paper";
 import AppButton from "@/components/AppButton";
 import AppSettingsButton from "@/components/AppSettingsButton";
 import { Link } from "expo-router";
+import Lock from "../../assets/images/lock.png";
 
 // Define a type for the route parameters
 type RouteParams = {
@@ -15,7 +16,8 @@ type RouteParams = {
 
 const AppDashboard: React.FC = () => {
   const theme = privaseeTheme;
-  const route = useRoute();
+  type AppDashboardRouteProp = RouteProp<{ params: RouteParams }, 'params'>;
+  const route = useRoute<AppDashboardRouteProp>();
   const navigation = useNavigation();
   const { selectedApps } = route.params; // Extract selected apps
 
@@ -65,13 +67,24 @@ const AppDashboard: React.FC = () => {
       <Card style={{ width: "90%" }}>
         <Card.Content style={{ alignItems: "center" }}>
           {/* Render Selected Apps */}
+          <Text
+          style={{
+            color: theme.colors.primary,
+            textAlign: "center",
+            fontSize: 20,
+            margin: 20,
+            marginTop: 5,
+          }}
+        >
+          Your Chosen Apps
+        </Text>
           <View style={styles.appsContainer}>
             {apps.length > 0 ? (
-              apps.map((app, index) => (
+              apps.map((app: string, index: number) => (
                 <View key={index} style={styles.appIconWrapper}>
                   <Link
                     href={{
-                      pathname: `${"/(tabs)/settings" + app}`,
+                      pathname: `./(tabs)/settings${app}` as const,
                     }}
                     asChild
                   >
@@ -91,45 +104,29 @@ const AppDashboard: React.FC = () => {
               </Text>
             )}
           </View>
-          <Text
-            style={{
-              color: theme.colors.primary,
-              textAlign: "center",
-              fontSize: 20,
-              fontWeight: "bold",
-              margin: 20,
-              marginBottom: 5,
-              marginTop: 10,
-            }}
-          >
-            Your Activity Chart
-          </Text>
-          <Image
-            source={require("../../assets/images/activity-chart.png")}
-            style={{
-              marginTop: 10,
-              width: 200,
-              height: 200,
-              alignSelf: "center",
-            }}
-          />
-          <View style={styles.usageStatsContainer}>
-            <View style={styles.usageStat}>
-              <View
-                style={[styles.dot, { backgroundColor: "rgb(54, 19, 90)" }]}
-              />
-              <Text style={styles.statLabel}>Your Files</Text>
-              <Text style={styles.statPercentage}>63%</Text>
-            </View>
-            <View style={styles.separator} />
-            <View style={styles.usageStat}>
-              <View
-                style={[styles.dot, { backgroundColor: "rgb(95, 107, 233)" }]}
-              />
-              <Text style={styles.statLabel}>System</Text>
-              <Text style={styles.statPercentage}>25%</Text>
-            </View>
-          </View>
+          
+          <Card style={{ width: "90%", marginTop: 20}}>
+            <Card.Content style={{ alignItems: "center" }}>
+              {/* Add children here if needed */}
+              <Text
+                style={{
+                  color: theme.colors.primary,
+                  textAlign: "center",
+                  fontSize: 20,
+                  margin: 20,
+                  marginTop: 5,
+                }}
+              >
+               Password Manager
+              </Text>
+              <Image source={Lock} style={{ width: 100, height: 100, marginBottom: 20 }} />
+              <Link href="./password_manager" asChild>
+                <Button mode="contained">
+                  <Text style={{ color: theme.colors.onPrimary }}>Manage Passwords</Text>
+                </Button>
+              </Link>
+            </Card.Content>
+          </Card>
         </Card.Content>
       </Card>
     </View>

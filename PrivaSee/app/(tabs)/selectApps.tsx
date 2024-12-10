@@ -60,7 +60,7 @@ const SelectApps = () => {
           </Text>
         </Card>
 
-        <Card style={{ height: "30%" }}>
+        <Card style={{ height: "50%" , width: 370}}>
           <Card.Content>
             <View style={styles.appButtonContainer}>
               {/* Render AppButton for each app */}
