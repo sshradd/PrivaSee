@@ -84,7 +84,7 @@ const AppDashboard: React.FC = () => {
                 <View key={index} style={styles.appIconWrapper}>
                   <Link
                     href={{
-                      pathname: `./(tabs)/settings${app}` as const,
+                      pathname: `./settings${app}` as const,
                     }}
                     asChild
                   >
@@ -120,8 +120,18 @@ const AppDashboard: React.FC = () => {
                Password Manager
               </Text>
               <Image source={Lock} style={{ width: 100, height: 100, marginBottom: 20 }} />
-              <Link href="./password_manager" asChild>
-                <Button mode="contained">
+              <Link 
+                href={{
+                  pathname: "./password_manager", 
+                  params: { selectedApps: selectedApps },
+                }}
+                asChild
+              >
+
+                <Button mode="contained"
+                  onPress={() => {
+                    console.log("Selected Apps:", selectedApps); // Log the array
+                  }}>
                   <Text style={{ color: theme.colors.onPrimary }}>Manage Passwords</Text>
                 </Button>
               </Link>

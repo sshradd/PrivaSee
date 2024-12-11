@@ -7,6 +7,7 @@ import AppDashboard from "./(tabs)/appDashboard";
 import Dashboard from "./(tabs)/dashboard";
 import EditConfigs from "./(tabs)/settings";
 import AdvancedSettings from "./(tabs)/advancedset";
+import PasswordManager from "./(tabs)/password_manager";
 
 // Define your navigation parameter list
 export type RootStackParamList = {
@@ -16,6 +17,7 @@ export type RootStackParamList = {
   AppDashboard: { selectedApps: string[] };
   EditConfigs: undefined;
   AdvancedSettings: undefined;
+  PasswordManager:  { selectedApps: string[] };
 };
 
 // Create the stack navigator
@@ -54,6 +56,11 @@ export default function HomeScreen() {
           <Stack.Screen
             name="AdvancedSettings"
             component={AdvancedSettings}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="PasswordManager"
+            component={PasswordManager}
             options={{ headerShown: false }}
           />
         </Stack.Navigator>
