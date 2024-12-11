@@ -22,9 +22,9 @@ export const PasswordListCenter = ({ children }: { children: ReactNode }) => {
 
 const styles = StyleSheet.create({
   card: {
-    maxWidth: "100%",
-    width: 400,
-    
+    maxWidth: "70%",
+    width: 200,
+    height: 400,
     marginVertical: 0, // Add some vertical spacing if needed
   },
   cardContent: {
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
   },
   scrollViewContent: {
     alignItems: 'flex-start', // Center horizontally
-    maxHeight: 250,
+    maxHeight: 500,
     overflow: "scroll",
     paddingVertical: 10, // Add padding for spacing
   },

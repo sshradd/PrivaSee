@@ -117,19 +117,19 @@ export default function BeginningScreen() {
               textAlign: "center",
               fontSize: 30,
               fontWeight: "bold",
-              margin: 20,
+              margin: 8,
             }}
           >
             Alerts
           </Text>
   
-          <View
+          {/* <View
             style={{
               flex: 1,
               justifyContent: "center",
               alignItems: "center",
             }}
-          >
+          > */}
               <PasswordAlertCenter>
                 {alerts.map((alert, index) => (
                   <PasswordAlert key={index} title={alert.title} message={alert.message} />
@@ -166,7 +166,7 @@ export default function BeginningScreen() {
                   No Apps Selected!
                 </Text>
               )}
-            </View>
+            {/* </View> */}
 
 
           </View>
@@ -177,7 +177,7 @@ export default function BeginningScreen() {
             mode="contained"
             onPress={saveChanges}
           >
-            Save Chnages
+            Save Changes
           </Button>
 
                   {/* Modal for Info and Success Message */}
@@ -203,7 +203,7 @@ export default function BeginningScreen() {
               </View>
             </View>
           </Modal>
-          <View style={{ margin: 20 }}>
+          {/* <View style={{ margin: 20 }}>
             <View
               style={{
                 flex: 1,
@@ -211,7 +211,7 @@ export default function BeginningScreen() {
                 justifyContent: "center",
               }}
             ></View>
-          </View>
+          </View> */}
         </Card.Actions>
       </Card>
     </View>
@@ -226,7 +226,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   appsContainer: {
-    flex: 1,
+    //flex: 1,
     justifyContent: "center",
     alignItems: "center",
     marginTop: 20,
@@ -234,7 +234,7 @@ const styles = StyleSheet.create({
   appRow: {
     flexDirection: "row", // Aligning items horizontally (app on the left, text box on the right)
     alignItems: "center", // Vertical alignment
-    marginVertical: 20, // Increased space between app rows
+    marginVertical: 5, // Increased space between app rows
     width: "100%",
     justifyContent: "space-between", // Spacing between text and input
   },
@@ -244,11 +244,15 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     padding: 5,
     marginRight: 10, // Space between app name and text input
+    marginTop:2,
+    marginBottom:2
   },
   appText: {
     fontSize: 18,
     color: "rgb(71, 85, 182)",
     textAlign: "center", // Center align the text inside the bordered area
+    marginTop:2,
+    marginBottom:2
   },
   textInput: {
     width: 150,
@@ -256,6 +260,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#ccc',
     borderRadius: 5,
+    marginTop:2,
+    marginBottom:2
   },
   modalContainer: {
     flex: 1,
