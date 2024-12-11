@@ -1,7 +1,7 @@
 import { Link } from "expo-router";
 import { Button, Card } from "react-native-paper";
 import { PaperProvider } from "react-native-paper";
-import { privaseeTheme } from "../../constants/themes";
+import { privaseeTheme } from "../constants/themes";
 import React, { useState } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import AppButton from "@/components/AppButton";
@@ -60,7 +60,7 @@ const SelectApps = () => {
           </Text>
         </Card>
 
-        <Card style={{ height: "50%", width: 370 }}>
+        <Card style={{ height: "50%" , width: 370}}>
           <Card.Content>
             <View style={styles.appButtonContainer}>
               {/* Render AppButton for each app */}
@@ -115,9 +115,7 @@ const SelectApps = () => {
               }}
               asChild
             >
-              <Button mode="contained" style={{ marginTop: 0 }}>
-                Apply
-              </Button>
+              <Button mode="contained">Apply</Button>
             </Link>
           </Card.Actions>
         </Card>

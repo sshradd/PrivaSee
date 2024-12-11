@@ -77,7 +77,7 @@ export default function BeginningScreen() {
           >
             Let's get you set up to secure your data.
           </Text>
-          <Link href="/(tabs)/selectApps" asChild>
+          <Link href="/selectApps" asChild>
             <Button mode="contained">
               <Text style={{ color: theme.colors.onPrimary }}>Detect Apps</Text>
             </Button>

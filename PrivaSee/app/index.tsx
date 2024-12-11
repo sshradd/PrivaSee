@@ -2,7 +2,7 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import BeginningScreen from "../components/initialpage/firstscreen";
-import SelectApps from "./(tabs)/selectApps";
+import SelectApps from "./selectApps";
 import AppDashboard from "./(tabs)/appDashboard";
 import Dashboard from "./(tabs)/dashboard";
 import EditConfigs from "./(tabs)/settings";

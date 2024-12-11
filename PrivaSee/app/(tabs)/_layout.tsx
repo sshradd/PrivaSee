@@ -59,6 +59,10 @@ export default function TabLayout() {
           ),
         }}
       />
+      <Tabs.Screen
+        name="selection/selectApps"
+        options={{ headerShown: false, href: null }}
+      />
       <Tabs.Screen name="oldindex" options={{ href: null }} />
       <Tabs.Screen
         name="settings"
@@ -115,6 +119,10 @@ export default function TabLayout() {
       <Tabs.Screen name="dashboard" options={{ href: null }} />
       <Tabs.Screen
         name="advancedset"
+        options={{ headerShown: false, href: null }}
+      />
+      <Tabs.Screen
+        name="password_manager"
         options={{ headerShown: false, href: null }}
       />
     </Tabs>
