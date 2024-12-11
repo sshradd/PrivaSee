@@ -133,7 +133,6 @@ const styles = StyleSheet.create({
     alignItems: "center", // Center buttons vertically within each row
     gap: 15, // Adjust space between buttons
     width: "90%", // Make the container flexible in width
-    height: "100%",
     paddingHorizontal: 20, // Add padding on the sides if needed
     marginBottom: 0,
   },
